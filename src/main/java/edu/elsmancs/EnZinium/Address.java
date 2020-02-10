@@ -6,8 +6,8 @@ import java.security.PublicKey;
 
 public class Address {
 	
-	private final PublicKey PK;
-	private final PrivateKey SK;
+	private PublicKey PK = null;
+	private PrivateKey SK = null;
 	private int balance = 0;
 	private String symbol = "EZI";
 
