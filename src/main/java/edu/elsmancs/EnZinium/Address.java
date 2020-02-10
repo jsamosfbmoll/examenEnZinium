@@ -8,7 +8,7 @@ public class Address {
 	
 	private PublicKey PK = null;
 	private PrivateKey SK = null;
-	private int balance = 0;
+	private float balance = 0;
 	private String symbol = "EZI";
 
 	public void generateKeyPair() {
@@ -20,6 +20,6 @@ public class Address {
 	
 	@Override
 	public String toString() {
-		return Integer.toString(PK.hashCode()) + "\nBalance = " + Integer.toString(balance) + " " + symbol;
+		return Integer.toString(PK.hashCode()) + "\nBalance = " + String.valueOf(balance) + " " + symbol;
 	}
 }
