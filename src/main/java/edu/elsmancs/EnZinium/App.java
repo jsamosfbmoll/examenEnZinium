@@ -84,7 +84,7 @@ public class App {
          * totalSupply()
          * @return el total de unidades de este token que actualmente existen.
          */
-/*
+
         TokenContract ricknillos = new TokenContract(rick);
         ricknillos.setName("Ricknillos");
         ricknillos.setSymbol("RNiLL");

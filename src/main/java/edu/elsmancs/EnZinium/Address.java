@@ -7,6 +7,7 @@ import java.security.PublicKey;
 public class Address {
 	
 	private PublicKey PK = null;
+	@SuppressWarnings("unused")
 	private PrivateKey SK = null;
 	private float balance = 0;
 	private String symbol = "EZI";
@@ -16,6 +17,10 @@ public class Address {
 		KeyPair keys = GenSig.generateKeyPair();
 		this.PK = keys.getPublic();
 		this.SK = keys.getPrivate();
+	}
+	
+	public PublicKey getPK() {
+		return this.PK;
 	}
 	
 	@Override
