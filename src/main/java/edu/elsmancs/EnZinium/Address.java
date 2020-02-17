@@ -19,7 +19,7 @@ public class Address {
 		this.SK = keys.getPrivate();
 	}
 	
-	public PublicKey getPK() {
+	PublicKey getPK() {
 		return this.PK;
 	}
 	
