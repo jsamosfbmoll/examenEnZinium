@@ -1,18 +1,21 @@
 package edu.elsmancs.EnZinium;
 
+import java.math.RoundingMode;
 import java.security.PublicKey;
 import java.util.HashMap;
 
 public class TokenContract {
 	
-	private PublicKey owner;
+	private PublicKey ownerPK;
+	private Address owner;
 	private final HashMap<PublicKey, Double> balances = new HashMap<PublicKey, Double>();
 	private String name;
 	private String symbol;
 	private double totalSupply;
 
 	public TokenContract(Address owner) {
-		this.owner = owner.getPK();
+		this.owner = owner;
+		this.ownerPK = owner.getPK();
 	}
 	
 	public void setName(String name) {
@@ -32,7 +35,7 @@ public class TokenContract {
 		String texto = "name = " + this.name +
 				"\nsymbol = " + this.symbol +
 				"\ntotal supply = " + String.valueOf(this.totalSupply) +
-				"\nowner PK = " + this.owner.hashCode();
+				"\nowner PK = " + this.ownerPK.hashCode();
 		return texto;
 	}
 
@@ -68,8 +71,8 @@ public class TokenContract {
 	
 	public void transfer(PublicKey publicKey, double tokens) {
 		try {
-			if (require(this.owner, tokens)) {
-				this.balances.put(this.owner, this.balanceOf(this.owner) - tokens);
+			if (require(this.ownerPK, tokens)) {
+				this.balances.put(this.ownerPK, this.balanceOf(this.ownerPK) - tokens);
 				if (this.balances.containsKey(publicKey)) {
 					this.balances.put(publicKey, this.balanceOf(publicKey) + tokens);
 				} else {
@@ -98,7 +101,7 @@ public class TokenContract {
 	
 	public void owners() {
 		for (PublicKey publicKey : balances.keySet()) {
-			if (publicKey != this.owner) {
+			if (publicKey != this.ownerPK) {
 				System.out.println("Owner: " + publicKey.hashCode()
 						+ " " + balanceOf(publicKey) + " "
 						+ this.symbol);
@@ -109,10 +112,17 @@ public class TokenContract {
 	public int totalTokensSold() {
 		int tokensVendidos = 0;
 		for (PublicKey publicKey : balances.keySet()) {
-			if (publicKey != this.owner) {
+			if (publicKey != this.ownerPK) {
 				tokensVendidos += balanceOf(publicKey);
 			}
 		}
 		return tokensVendidos;
+	}
+	
+	public void payable(Address receptor, double ezi) {
+		int cantidadTokensComprables = (int) (ezi / 5.0d);
+		this.transfer(receptor.getPK(), cantidadTokensComprables);
+		receptor.transferEZI(-ezi - (ezi % 5.0d));
+		this.owner.transferEZI(ezi - (ezi % 5.0d));
 	}
 }

@@ -31,4 +31,12 @@ public class Address {
 	public void transferEZI(double ezi) {
 		this.balance += ezi;
 	}
+	
+	public void send(TokenContract contrato, double ezi) {
+		contrato.payable(this, ezi);
+	}
+
+	public double getBalance() {
+		return this.balance;
+	}
 }

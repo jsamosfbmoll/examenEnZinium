@@ -308,7 +308,7 @@ public class App {
          * Actualiza el balance de EZI en la dirección del receptor
          * de esos enZiniums
          */
-/*
+
         morty.send(ricknillos, 10d);
 
         ricknillos.owners();
@@ -341,6 +341,6 @@ public class App {
                                             + ricknillos.balanceOf(rick.getPK())
                                             + " "
                                             + ricknillos.symbol());
-*/
+
     }
 }
