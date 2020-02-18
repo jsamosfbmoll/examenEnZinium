@@ -114,7 +114,7 @@ public class App {
          * @param PublicKey del propietario
          * @param cantidad de tokens que posee
          */
-/*
+
         ricknillos.addOwner(rick.getPK(), ricknillos.totalSupply());
         // verifica que Rick no se actualiza una vez que ya existe en el balance
         ricknillos.addOwner(rick.getPK(), 500d);
@@ -131,7 +131,7 @@ public class App {
          * Dada una direccion, devuelve su balance de tokens. Si no existe 
          * el propietario, devuelve cero.
          */
-/*
+
         System.out.println("\n" + "Consulta de balances" + "\n" + 
                                   "===================="        );
 
@@ -165,7 +165,7 @@ public class App {
          * @param una condicion que ha de verificarse (ser cierta)
          * Lanza una EXCEPCION si no se cumple la condicion
          */
-/*
+
         System.out.println("\n" + "Transferencia de entradas" + "\n" + 
                                   "========================="        );
 
@@ -210,7 +210,7 @@ public class App {
          * @param recipient PK
          * @param cantidad de tokens
          */
-/*
+
         System.out.println("\n" + "Reventa de entradas" + "\n" + 
                                   "==================="        );
         
@@ -235,7 +235,7 @@ public class App {
          * @return muestra en consola la PublicKey de los compradores
          *         y el numero de tokens que han adquirido
          */
-/*
+
         System.out.println("\n" + "Lista de compradores" + "\n" + 
                                   "===================="        );
         ricknillos.owners();
@@ -247,7 +247,7 @@ public class App {
          * totalTokensSold()
          * @return numero de tokens (entradas) vendidos
          */
-/*
+
         System.out.println("\n" + "Total de asistentes: " 
                                     + ricknillos.totalTokensSold() + "\n");
 
