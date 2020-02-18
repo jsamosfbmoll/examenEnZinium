@@ -268,7 +268,7 @@ public class App {
          * Añade la cantidad de EZi al balance de EZI en
          * la dirección del receptor.
          */
-/*
+
         morty.transferEZI(20d);
 
         System.out.println("\n" + "Recarga eZis de Morty" + "\n" + 

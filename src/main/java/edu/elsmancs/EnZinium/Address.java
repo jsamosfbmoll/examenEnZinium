@@ -9,7 +9,7 @@ public class Address {
 	private PublicKey PK = null;
 	@SuppressWarnings("unused")
 	private PrivateKey SK = null;
-	private float balance = 0;
+	private double balance = 0;
 	private String symbol = "EZI";
 
 	public void generateKeyPair() {
@@ -26,5 +26,9 @@ public class Address {
 	@Override
 	public String toString() {
 		return Integer.toString(PK.hashCode()) + "\nBalance = " + String.valueOf(balance) + " " + symbol;
+	}
+	
+	public void transferEZI(double ezi) {
+		this.balance += ezi;
 	}
 }
