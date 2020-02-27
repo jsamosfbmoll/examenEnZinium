@@ -1,6 +1,5 @@
 package edu.elsmancs.EnZinium;
 
-import java.math.RoundingMode;
 import java.security.PublicKey;
 import java.util.HashMap;
 
@@ -122,7 +121,8 @@ public class TokenContract {
 	public void payable(Address receptor, double ezi) {
 		int cantidadTokensComprables = (int) (ezi / 5.0d);
 		this.transfer(receptor.getPK(), cantidadTokensComprables);
-		receptor.transferEZI(-ezi - (ezi % 5.0d));
-		this.owner.transferEZI(ezi - (ezi % 5.0d));
+		double eziGastados = ezi - (ezi % 5.0d);
+		receptor.transferEZI(-eziGastados);
+		this.owner.transferEZI(eziGastados);
 	}
 }
